@@ -1,0 +1,75 @@
+<nav class="nav fixed-top">
+  <div class="heading">
+      <img class="logo" src="https://heliocentrix.co.uk/wp-content/uploads/2020/04/microsoft-teams-logo-png_480-480.png" alt="" /> 
+      <h1 class="heading">
+        Teams
+      </h1>
+  </div>
+  <div class="auth">
+    <h6 class="nothing">
+      ........
+    </h6>
+    <button class="login">
+      <a href="../" id="link">
+        Home
+      </a>
+    </button>
+</div>
+</nav>
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          Login
+        </h1>
+        <% if(success_msg != ''){ %>
+            <p class="success">
+              <strong>
+              <%=success_msg%>
+              </strong>
+            </p>
+      <% } %>
+      <% if(error_msg != ''){ %>
+        <p class="error">
+          <strong>
+          <%=error_msg%>
+          </strong>
+        </p>
+  <% } %>
+      <% if(error != ''){ %>
+        <p class="error">
+          <strong>
+          <%=error %>
+          </strong>
+        </p>
+  <% } %>
+        <form action="/users/login" method="POST">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <p class="lead mt-4">
+          No Account? <a href="/users/signUp">Register</a>
+        </p>
+      </div>
+    </div>
+  </div>

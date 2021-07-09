@@ -1,0 +1,105 @@
+<nav class="nav fixed-top">
+  <div class="heading">
+      <img class="logo" src="https://heliocentrix.co.uk/wp-content/uploads/2020/04/microsoft-teams-logo-png_480-480.png" alt="" /> 
+      <h1 class="heading"> 
+          Teams
+      </h1>
+  </div>
+  <div class="auth">
+    <h6 class="nothing">
+      ........
+    </h6>
+    <button class="login">
+      <a href="../" id="link">
+        Home
+      </a>
+    </button>
+</div>
+</nav>
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+           Register
+        </h1>
+        <% if(typeof errors !== 'undefined'){ %>
+          <% errors.forEach((error)=>{ %>
+            <p class="error">
+              <strong>
+              <%= error.msg %>
+              </strong>
+            </p>
+          <% }); %>
+      <% } %>
+        <form action="/users/signUp" method="POST">
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <span class="required">*</span>
+            <input
+              type="name"
+              id="firstname"
+              name="firstname"
+              class="form-control"
+              placeholder="Enter First Name"
+              value="<%= typeof firstname != 'undefined' ? firstname : '' %>"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input
+              type="name"
+              id="lastname"
+              name="lastname"
+              class="form-control"
+              placeholder="Enter Last Name"
+              value="<%= typeof lastname != 'undefined' ? lastname : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <span class="required">*</span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <span class="required">*</span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Create Password"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <span class="required">*</span>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-control"
+              placeholder="Confirm Password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+              required="required"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+        <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+      </div>
+    </div>
+  </div>
