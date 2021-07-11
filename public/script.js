@@ -2,7 +2,7 @@ const socket=io('/');
 const videoGrid=document.getElementById('video-grid');
 const myPeer=new Peer(undefined,{
   secure: true, 
-  host: 'video-call-clone-app.herokuapp.com', 
+  host: 'video-call-clone-app.herokuapp.com/', 
   port: 443,
 });
 window.peer = myPeer;
