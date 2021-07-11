@@ -3,12 +3,11 @@ const app=express();
 const server = require('http').Server(app);
 const mongoose=require('mongoose');
 const cors=require("cors");
+const dotenv=require('dotenv');
 const expressLayouts=require('express-ejs-layouts');
 const flash=require('connect-flash');
 const session=require('express-session');
 const passport=require('passport');
-const {ensureAuthenticated}=require('./config/auth');
-const { v4: uuidv4 } = require("uuid");
 const io = require('socket.io')(server,{
     cors: {
         origin: '*',
@@ -21,6 +20,8 @@ debug: true,
 });
 
 app.use('/peerjs', peerServer);
+
+dotenv.config();
 
 app.use(cors());
 
@@ -73,9 +74,11 @@ io.on('connection',socket=>{
     socket.on("join-room",(roomId,userId,user)=>{
         socket.join(roomId);
         socket.broadcast.to(roomId).emit('user-connected',userId);
+        //Disconnect
         socket.on('disconnect',()=>{
-            socket.broadcast.to(roomId).emit('user-disconnected',userId);
+            socket.broadcast.emit('user-disconnected',userId);
         })
+        //Chat
         socket.on("message", (message) => {
             io.to(roomId).emit("createMessage", message,user);
         });

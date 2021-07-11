@@ -32,7 +32,7 @@ router.post('/signUp',(req,res)=>{
         errors.push({msg:"Passwords do not match"})
     }
 
-    //Password length
+    //Password length Check
     else if(password.length<6){
         errors.push({msg:"Password should be atleast 6 characters"})
     };

@@ -1,11 +1,11 @@
 const express=require('express');
 const router=express.Router();
-const {ensureAuthenticated}=require('../config/auth');
+const {ensureAuthenticated,forwardAuthenticated}=require('../config/auth');
 const { v4: uuidv4 } = require("uuid");
 
 
 //Welcome Page
-router.get('/',(req,res)=>{
+router.get('/',forwardAuthenticated,(req,res)=>{
     res.render('welcome')
 });
 

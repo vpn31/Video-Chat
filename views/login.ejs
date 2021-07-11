@@ -1,49 +1,56 @@
+<!--Navbar-->
 <nav class="nav fixed-top">
-  <div class="heading">
-      <img class="logo" src="https://heliocentrix.co.uk/wp-content/uploads/2020/04/microsoft-teams-logo-png_480-480.png" alt="" /> 
-      <h1 class="heading">
-        Teams
-      </h1>
+  <div class="container">
+    <div class="row">
+      <div class="heading column3">
+        <img class="logo" src="https://heliocentrix.co.uk/wp-content/uploads/2020/04/microsoft-teams-logo-png_480-480.png" alt="" /> 
+        <h1 class="heading">
+          Teams
+        </h1>
+      </div>
+      <div class="auth column4">
+        <h6 class="nothing">
+          ........
+        </h6>
+      <button class="login">
+        <a href="../" id="link">
+          Home
+        </a>
+      </button>
+      </div>
+    </div>
   </div>
-  <div class="auth">
-    <h6 class="nothing">
-      ........
-    </h6>
-    <button class="login">
-      <a href="../" id="link">
-        Home
-      </a>
-    </button>
-</div>
 </nav>
 
+<!--Login form-->
 <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
         <h1 class="text-center mb-3">
           Login
         </h1>
+        <!--Error message if any-->
         <% if(success_msg != ''){ %>
             <p class="success">
               <strong>
               <%=success_msg%>
               </strong>
             </p>
-      <% } %>
-      <% if(error_msg != ''){ %>
-        <p class="error">
-          <strong>
-          <%=error_msg%>
-          </strong>
-        </p>
-  <% } %>
-      <% if(error != ''){ %>
-        <p class="error">
-          <strong>
-          <%=error %>
-          </strong>
-        </p>
-  <% } %>
+        <% } %>
+        <% if(error_msg != ''){ %>
+          <p class="error">
+            <strong>
+            <%=error_msg%>
+            </strong>
+          </p>
+        <% } %>
+        <% if(error != ''){ %>
+          <p class="error">
+            <strong>
+            <%=error %>
+            </strong>
+          </p>
+        <% } %>
         <form action="/users/login" method="POST">
           <div class="form-group">
             <label for="email">Email</label>
@@ -73,3 +80,35 @@
       </div>
     </div>
   </div>
+  <!--Footer-->
+  <footer class="footer" id="login-footer">
+    <div class="container">
+        <div class="row">
+            <div class="column1"><!--Address-->
+                <h5>Our Address:</h5>
+                <address>
+                  Microsoft India (R&D) Pvt. Ltd.<br>
+                  Microsoft Campus, Gachibowli,<br>
+                  Hyderabad - 500 032<br>
+              <i class="fa fa-phone fa-lg"></i> : +91-40-6694 0000<br>
+              <i class="fa fa-fax fa-lg"></i> : 1800 102 1100<br>
+              <i class="fa fa-envelope fa-lg"></i> : <a href="http://www.microsoft.com/support.">http://www.microsoft.com/support.</a>
+           </address>
+            </div>
+            <div class="column2">
+                <div><!--Social media links-->
+                    <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/MicrosoftIndia"><i class="fa fa-facebook fa-lg"></i></a>
+                    <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/company/microsoft/"><i class="fa fa-linkedin fa-lg"></i></a>
+                    <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/microsoftindia?lang=en"><i class="fa fa-twitter fa-lg"></i></a>
+                    <a class="btn btn-social-icon btn-google" href="https://www.youtube.com/user/Microsoft/"><i class="fa fa-youtube fa-lg"></i></a>
+                    <a class="btn btn-social-icon" href="http://www.microsoft.com/support."><i class="fa fa-envelope-o fa-lg"></i></a>
+                </div>
+            </div>
+       </div>
+       <div class="row justify-content-center">
+            <div class="col-auto">
+                <p>© Copyright 2021 Microsoft</p>
+            </div>
+       </div>
+    </div>
+  </footer>
