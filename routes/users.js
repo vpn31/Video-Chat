@@ -14,7 +14,7 @@ router.get('/login',forwardAuthenticated,(req,res)=>{
 
 //Register
 router.get('/signUp',(req,res)=>{
-    res.render('register')
+    res.render('register');
 });
 
 //Register Handle

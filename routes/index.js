@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 
 //Welcome Page
 router.get('/',forwardAuthenticated,(req,res)=>{
-    res.render('welcome')
+    res.render('welcome');
 });
 
 //Dashboard
