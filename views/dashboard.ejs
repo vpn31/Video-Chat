@@ -1,3 +1,4 @@
+<!--Navbar-->
 <nav class="nav fixed-top">
   <div class="container">
     <div class="row">
@@ -20,62 +21,68 @@
     </div>
   </div>
 </nav>
-  <div class="row mt-5">
-    <div class="dash col-md-6 m-auto">
-      <div class="card card-body startCall">
-        <h1 class="text-center mb-3">
-          Start a Video Call
-        </h1>
-        <form action="/video" method="GET">
-          <button type="submit" class="btn btn-primary btn-block" id="start">Start</button>
-        </form>
+
+<!--Body-->
+<div class="row mt-5">
+  <div class="dash col-md-6 m-auto">
+    <div class="card card-body startCall">
+      <!--Start Call-->
+      <h1 class="text-center mb-3">
+        Start a Video Call
+      </h1>
+      <form action="/video" method="GET">
+        <button type="submit" class="btn btn-primary btn-block" id="start">Start</button>
+      </form>
+    </div>
+    <div class="card card-body enterId">
+      <!--Enter existing call-->
+      <h1 class="text-center mb-3">
+        Enter ID
+      </h1>
+      <form onsubmit="location.href='/' + document.getElementById('roomId').value; return false;" method="GET">
+        <input
+          type="id"
+          id="roomId"
+          name="roomId"
+          class="form-control"
+          placeholder="Enter Id"
+          value="<%= typeof roomId != 'undefined' ? roomId : '' %>"
+        />
+        <button type="submit" class="btn btn-primary btn-block" id="enter">Enter</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+<footer class="footer" id="dashboard-footer">
+  <div class="container">
+    <div class="row">
+      <div class="column1">
+        <h5>Our Address:</h5>
+        <address>
+          Microsoft India (R&D) Pvt. Ltd.<br>
+          Microsoft Campus, Gachibowli,<br>
+          Hyderabad - 500 032<br>
+          <i class="fa fa-phone fa-lg"></i> : +91-40-6694 0000<br>
+          <i class="fa fa-fax fa-lg"></i> : 1800 102 1100<br>
+          <i class="fa fa-envelope fa-lg"></i> : <a href="http://www.microsoft.com/support.">http://www.microsoft.com/support.</a>
+        </address>
       </div>
-      <div class="card card-body enterId">
-        <h1 class="text-center mb-3">
-          Enter ID
-        </h1>
-        <form onsubmit="location.href='/' + document.getElementById('roomId').value; return false;" method="GET">
-          <input
-              type="id"
-              id="roomId"
-              name="roomId"
-              class="form-control"
-              placeholder="Enter Id"
-              value="<%= typeof roomId != 'undefined' ? roomId : '' %>"
-            />
-          <button type="submit" class="btn btn-primary btn-block" id="enter">Enter</button>
-        </form>
+      <div class="column2">
+        <div>
+          <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/MicrosoftIndia"><i class="fa fa-facebook fa-lg"></i></a>
+          <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/company/microsoft/"><i class="fa fa-linkedin fa-lg"></i></a>
+          <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/microsoftindia?lang=en"><i class="fa fa-twitter fa-lg"></i></a>
+          <a class="btn btn-social-icon btn-google" href="https://www.youtube.com/user/Microsoft/"><i class="fa fa-youtube fa-lg"></i></a>
+          <a class="btn btn-social-icon" href="http://www.microsoft.com/support."><i class="fa fa-envelope-o fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <p>© Copyright 2021 Microsoft</p>
       </div>
     </div>
   </div>
-  <footer class="footer" id="dashboard-footer">
-    <div class="container">
-        <div class="row">
-            <div class="column1">
-                <h5>Our Address:</h5>
-                <address>
-                  Microsoft India (R&D) Pvt. Ltd.<br>
-                  Microsoft Campus, Gachibowli,<br>
-                  Hyderabad - 500 032<br>
-              <i class="fa fa-phone fa-lg"></i> : +91-40-6694 0000<br>
-              <i class="fa fa-fax fa-lg"></i> : 1800 102 1100<br>
-              <i class="fa fa-envelope fa-lg"></i> : <a href="http://www.microsoft.com/support.">http://www.microsoft.com/support.</a>
-           </address>
-            </div>
-            <div class="column2">
-                <div>
-                    <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/MicrosoftIndia"><i class="fa fa-facebook fa-lg"></i></a>
-                    <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/company/microsoft/"><i class="fa fa-linkedin fa-lg"></i></a>
-                    <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/microsoftindia?lang=en"><i class="fa fa-twitter fa-lg"></i></a>
-                    <a class="btn btn-social-icon btn-google" href="https://www.youtube.com/user/Microsoft/"><i class="fa fa-youtube fa-lg"></i></a>
-                    <a class="btn btn-social-icon" href="http://www.microsoft.com/support."><i class="fa fa-envelope-o fa-lg"></i></a>
-                </div>
-            </div>
-       </div>
-       <div class="row justify-content-center">
-            <div class="col-auto">
-                <p>© Copyright 2021 Microsoft</p>
-            </div>
-       </div>
-    </div>
-  </footer>
+</footer>

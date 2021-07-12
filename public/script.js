@@ -1,11 +1,8 @@
 const socket=io('/');
 const videoGrid=document.getElementById('video-grid');
 const myPeer=new Peer(undefined,{
-    key: 'peerjs',
-    host: 'https://video-call-clone-app.herokuapp.com/',
-    port: 443,
-    path: '/',
-    secure: true,
+    host:'/',
+    port:'5001'
 });
 window.peer = myPeer;
 //Create Video Element

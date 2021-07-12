@@ -3,7 +3,6 @@ const app=express();
 const server = require('http').Server(app);
 const mongoose=require('mongoose');
 const cors=require("cors");
-const dotenv=require('dotenv');
 const expressLayouts=require('express-ejs-layouts');
 const flash=require('connect-flash');
 const session=require('express-session');
@@ -17,12 +16,9 @@ const io = require('socket.io')(server,{
 const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
 debug: true,
-allow_discovery:true,
 });
 
 app.use('/peerjs', peerServer);
-
-dotenv.config();
 
 app.use(cors());
 
@@ -49,7 +45,7 @@ app.use(express.urlencoded({extended:false}));
 
 //Express Session
 app.use(session({
-    secret: 'frag',
+    secret: '',
     resave: true,
     saveUninitialized: true,
 }));
