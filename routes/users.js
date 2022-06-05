@@ -7,6 +7,15 @@ const {forwardAuthenticated}=require('../config/auth');
 //User Model
 const User=require('../models/SignUpModels');
 
+const authCheck=(req,res,next)=>{
+    if(!req.user){
+        res.redirect('/users/login');
+    }
+    else{
+        next();
+    }
+}
+
 //Login
 router.get('/login',forwardAuthenticated,(req,res)=>{
     res.render('login')
@@ -102,6 +111,22 @@ router.post('/login',(req,res,next)=>{
     })(req,res,next);
 });
 
+router.get('/google',
+    passport.authenticate('google',{scope : ['email' , 'profile']})
+);
+
+router.get('/google/callback',
+    passport.authenticate('google',{
+        successRedirect:'/dashboard',
+        failureRedirect:'/users/login',
+        failureFlash:true
+    })
+);
+
+router.get('/dashboard',authCheck,(req,res)=>{
+        res.send('Hello');
+    }
+);
 //Logout Handle
 router.get('/logout',(req,res)=>{
     req.logout();

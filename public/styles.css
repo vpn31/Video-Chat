@@ -459,3 +459,29 @@ video {
     margin-top: 75px;
 }
 
+#or{
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    padding-top: 20px;
+}
+
+#or span{
+    background: #fff;
+    padding: 0 10px;
+}
+
+#Google{
+    padding: 5px 10px  5px 10px;
+    width: 100%;
+}
+
+.Google{
+    padding-top: 10px;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}

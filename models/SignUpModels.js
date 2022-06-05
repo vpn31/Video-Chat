@@ -21,7 +21,7 @@ const signUpTemplate=new mongoose.Schema({
     },
     password:{
         type:String,
-        required:true,
+        required:false,
         min: 6,
         max: 1024,
     },

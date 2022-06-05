@@ -45,7 +45,7 @@ app.use(express.urlencoded({extended:false}));
 
 //Express Session
 app.use(session({
-    secret: '',
+    secret: 'Hi',
     resave: true,
     saveUninitialized: true,
 }));
@@ -65,11 +65,14 @@ app.use((req,res,next)=>{
     next();
 });
 
+const users={};
 
 //Join room
 io.on('connection',socket=>{
+
     socket.on("join-room",(roomId,userId,user)=>{
         socket.join(roomId);
+        users[userId]=user;
         socket.broadcast.to(roomId).emit('user-connected',userId);
         //Disconnect
         socket.on('disconnect',()=>{

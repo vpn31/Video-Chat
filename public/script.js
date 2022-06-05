@@ -1,8 +1,9 @@
 const socket=io('/');
 const videoGrid=document.getElementById('video-grid');
-const myPeer=new Peer(undefined,{
-    host:'/',
-    port:'5001'
+const myPeer=new Peer('videocallapp',{
+    secure : true,
+    host : 'vchat-vp.herokuapp.com',
+    port : '443'
 });
 window.peer = myPeer;
 //Create Video Element
@@ -35,6 +36,12 @@ const peers={};
 const user = username;
 let myVideoStream,myId;
 
+myPeer.on('open',id=>{
+  myId=id;
+  console.log(id);
+  socket.emit("join-room",ROOM_ID,id,user);
+});
+
 //Get audio and video
 navigator.mediaDevices.getUserMedia({
     video:true,
@@ -64,12 +71,10 @@ socket.on('user-disconnected',userId=>{
     if(peers[userId]){
       peers[userId].close();
     }
-});
-
-myPeer.on('open',id=>{
-    myId=id;
-    console.log(id);
-    socket.emit("join-room",ROOM_ID,id,user);
+    //else{
+      //videoGrid.remove(video);
+      //window.location=window.location;
+    //}
 });
 
 var conn = myPeer.connect(myId)
@@ -127,6 +132,9 @@ const inviteButton = document.querySelector("#inviteButton");
 const muteButton = document.querySelector("#muteButton");
 //Pause video icon 
 const stopVideo = document.querySelector("#stopVideo");
+//Leave Button
+const leaveButton = document.querySelector("#leaveButton");
+
 
 //Mute & unmute my mic
 muteButton.addEventListener("click", () => {
@@ -166,6 +174,11 @@ inviteButton.addEventListener("click", (e) => {
     "Send this ID to people you want to meet with",
     ROOM_ID
   );
+});
+
+leaveButton.addEventListener("click", (e) => {
+  myPeer.destroy();
+  videoGrid.remove(myVideo);
 });
 
 //Display the message entered by user in chat window
