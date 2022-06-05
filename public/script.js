@@ -2,7 +2,7 @@ const socket=io('/');
 const videoGrid=document.getElementById('video-grid');
 const myPeer=new Peer('videocallapp',{
     secure : true,
-    host : 'vchat-vp.herokuapp.com',
+    host : 'https://vchat-vp.herokuapp.com/',
     port : '443'
 });
 window.peer = myPeer;
