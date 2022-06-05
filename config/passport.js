@@ -38,7 +38,7 @@ module.exports=function(passport){
     passport.use(new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:5000/users/google/callback",
+        callbackURL: "https://vchat-vp.herokuapp.com/users/google/callback",
         passReqToCallback: true
         },
         function(req,accessToken, refreshToken, profile, done) {
