@@ -33,22 +33,26 @@ In order to run the website locally on your computer , follow the steps given be
  
  Before that open "config/keys.js" and add your MongoDB URI :<br>
  `module.exports = {
-    MongoURI : `mongodb+srv://<username>:<password>@cluster0.0dovlvb.mongodb.net/?retryWrites=true&w=majority/`
+    MongoURI : 'mongodb+srv://<username>:<password>@cluster0.0dovlvb.mongodb.net/?retryWrites=true&w=majority/'
 }`
 
 ## Welcome page
-c:\Users\HP\OneDrive\Desktop\Welcome.png
+![Welcome](https://user-images.githubusercontent.com/75882984/185735926-9ea3d3c3-fa29-4cfe-976f-5d4e7e74521a.png)
+
 
 
 ## Signin/Signup page
-c:\Users\HP\OneDrive\Desktop\Login.png
-c:\Users\HP\OneDrive\Desktop\Register.png
+![Login](https://user-images.githubusercontent.com/75882984/185735934-ecfdcdbf-6bfe-4629-bcdd-80b3a23b47f9.png)
+![Register](https://user-images.githubusercontent.com/75882984/185735935-d1792eda-02e9-469c-b4c2-914109a69036.png)
+
 
 ## Dashboard
-c:\Users\HP\OneDrive\Desktop\Dashboard.png
+![Dashboard](https://user-images.githubusercontent.com/75882984/185735938-62139672-55f0-4198-b0fe-42fc317e8e89.png)
+
 
 ## Video Call
-c:\Users\HP\OneDrive\Desktop\Video Call Window.png
+![Video Call Window](https://user-images.githubusercontent.com/75882984/185735941-128c8849-3d4e-4cb2-b53d-c02e78059545.png)
+
 
  
  > This web app was built by me:
