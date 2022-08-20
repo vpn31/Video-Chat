@@ -3,8 +3,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt=require('bcryptjs');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const GOOGLE_CLIENT_ID='972985974083-sps9h0vnp4k6tatdulipobh9dgc0b418.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET='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';
+const GOOGLE_CLIENT_ID=process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET=process.env.GOOGLE_CLIENT_SECRET;
 
 //Load User Model
 const User=require('../models/SignUpModels');
@@ -38,7 +38,7 @@ module.exports=function(passport){
     passport.use(new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
         clientSecret: GOOGLE_CLIENT_SECRET,
-        callbackURL: "https://vchat-vp.herokuapp.com/users/google/callback",
+        callbackURL: "http://localhost:5000/users/google/callback",
         passReqToCallback: true
         },
         function(req,accessToken, refreshToken, profile, done) {

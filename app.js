@@ -6,6 +6,7 @@ const cors=require("cors");
 const expressLayouts=require('express-ejs-layouts');
 const flash=require('connect-flash');
 const session=require('express-session');
+const dotenv=require('dotenv');
 const passport=require('passport');
 const io = require('socket.io')(server,{
     cors: {
@@ -17,6 +18,8 @@ const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
 debug: true,
 });
+
+dotenv.config();
 
 app.use('/peerjs', peerServer);
 
@@ -45,7 +48,7 @@ app.use(express.urlencoded({extended:false}));
 
 //Express Session
 app.use(session({
-    secret: 'Hi',
+    secret: process.env.TOKEN_SECRET,
     resave: true,
     saveUninitialized: true,
 }));
