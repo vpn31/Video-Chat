@@ -7,6 +7,7 @@ This project was done under Microsoft Engage Mentorship Programme 2021. Server s
    * [EJS](https://ejs.co/)
    * [Express](http://expressjs.com/)
    * [Passport](http://www.passportjs.org/docs/)
+   * [Socket.io](https://socket.io/docs/)
 ## Usage
 
 In order to run the website locally on your computer , follow the steps given below:
