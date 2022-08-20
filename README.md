@@ -55,6 +55,3 @@ In order to run the website locally on your computer , follow the steps given be
 ![Video Call Window](https://user-images.githubusercontent.com/75882984/185735941-128c8849-3d4e-4cb2-b53d-c02e78059545.png)
 
 
- 
- > This web app was built by me:
-   * [Vatsal Pravin](https://github.com/nobody8925)
